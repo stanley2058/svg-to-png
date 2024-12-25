@@ -39,6 +39,8 @@ jobs:
           version: 9
           run_install: true
       - run: pnpm run build
+        env:
+          BASE_URL: ${{ vars.BASE_URL }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
