@@ -35,13 +35,15 @@ jobs:
         uses: actions/configure-pages@v5
       - uses: actions/setup-node@v4
       - uses: pnpm/action-setup@v4
-      - run: pnpm i
+        with:
+          version: 9
+          run_install: true
       - run: pnpm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: './dist'
+          path: "./dist"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
